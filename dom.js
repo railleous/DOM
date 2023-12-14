@@ -40,14 +40,66 @@
 //}
 
 // GETELEMENTSBYTAGNAME
-var li = document.getElementsByTagName('li');
-console.log(li);
-console.log(li[2]);
+//var li = document.getElementsByTagName('li');
+//console.log(li);
+//console.log(li[2]);
 
-for(var i=0 ; i < li.length; i++){
-       li[i].style.fontWeight = 'bold';
-      li[i].style.color = 'purple';
+//for(var i=0 ; i < li.length; i++){
+//       li[i].style.fontWeight = 'bold';
+//      li[i].style.color = 'purple';
+//}
+
+//Query Selector//
+
+/* var header = document.querySelector('#main-header');
+header.style.borderBottom = 'solid 4px #ccc';
+
+var input = document.querySelector('input');
+input.value = 'Type Here';
+
+var submit = document.querySelector('input[type="submit"]');
+submit.value = 'Send';
+
+var items = document.querySelector('.list-group-item');
+items.style.color = 'red';
+
+var lastItems = document.querySelector('.list-group-item:last-child');
+lastItems.style.color = 'green';
+
+var secondItems = document.querySelector('.list-group-item:nth-child(2)');
+secondItems.style.color = 'blue';
+
+var thirdItems = document.querySelector('.list-group-item:nth-child(3)');
+thirdItems.style.color = 'purple'; */
+
+//Query SelectorAll//
+
+var titles = document.querySelectorAll('.title');
+console.log(titles);
+//titles[0].textContent = 'Hello';
+
+var odd = document.querySelectorAll('li:nth-child(odd)');
+//var even = document.querySelectorAll('li:nth-child(even)');
+
+
+
+for(var i = 0; i < odd.length; i++) {
+    //Choose all the odd elements and make their background green using QuerySelectorALL
+    odd[i].style.backgroundColor = 'green';
+    //even[i].style.backgroundColor = '#ccc';
 }
+
+//Using QuerySelectorALL change the font color to green for 2nd item in the item list
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'green';
+
+//Make the 2nd item have green background color
+var secondbg = document.querySelector('.list-group-item:nth-child(2)');
+secondbg.style.backgroundColor = 'green';
+
+//Make the 3rd item invisible
+var thirditem = document.querySelector('.list-group-item:nth-child(3)');
+thirditem.style.color = 'green';
 
 
 
