@@ -25,17 +25,29 @@
 
 //GETELEMENTSBYCLASSNAME//
 
-var items = document.getElementsByClassName('list-group-item');
-console.log(items)
+//var items = document.getElementsByClassName('list-group-item');
+//console.log(items)
 //items[2].textContent = 'Hello 2';
-items[2].style.backgroundColor = 'green';
+//items[2].style.backgroundColor = 'green';
 
 //for(var i=0 ; i < items.length; i++){
 //    items[i].style.backgroundColor = '#f4f4f4';
 //}
 
-for(var i=0 ; i < items.length; i++){
-    items[i].style.fontWeight = 'bold';
-    items[i].style.color = 'purple';
+//for(var i=0 ; i < items.length; i++){
+//    items[i].style.fontWeight = 'bold';
+//    items[i].style.color = 'purple';
+//}
+
+// GETELEMENTSBYTAGNAME
+var li = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[2]);
+
+for(var i=0 ; i < li.length; i++){
+       li[i].style.fontWeight = 'bold';
+      li[i].style.color = 'purple';
 }
+
+
 
