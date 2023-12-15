@@ -192,14 +192,18 @@ function buttonClick(e) { */
 
 
 
-// PROJECT
+                      // PROJECT //
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var newDes =document.getElementById('description');
+var filter = document.getElementById('filter');
 
 // form submit event
 form.addEventListener('submit', addItem);
 // delete event
 itemList.addEventListener('click', removeItem);
+// filter event
+filter.addEventListener('keyup',filterItems);
 
 //Add item
 function addItem(e) {
@@ -207,26 +211,28 @@ function addItem(e) {
 
 // Get input Value
 var newItem = document.getElementById('item').value;
+var newDesValue = document.getElementById('description').value;
 
 // create new li eleemnt
 var li = document.createElement('li');
 //Add class
 li.className = 'list-group-item';
 //Add text node with input value
-li.appendChild(document.createTextNode(newItem));
+li.appendChild(document.createTextNode(newItem+' '+ newDesValue));
+
 //create del button element
 var deletebtn = document.createElement('button');
 // add class to delete utton
 deletebtn.className = 'btn btn-danger btn-sm float-right delete';
 //append text node
 deletebtn.appendChild(document.createTextNode('X'));
-deletebtn.appendChild(document.createTextNode('edit'));
 
 //append button to li
 li.appendChild(deletebtn)
 
 //append li to list
 itemList.appendChild(li);
+
 }
 
 // Remove item
@@ -237,4 +243,21 @@ function removeItem(e) {
             itemList.removeChild(li);
         }
     }
+}
+
+// filter Items
+function filterItems(e) {
+    var text = e.target.value.toLowerCase();
+    // Get list
+    var items = itemList.getElementsByTagName('li');
+    //var descrip = itemList.getElementsByTagName('li');
+    // Convert to an array
+    Array.from(items).forEach(function(item){
+        var itemName = item.firstChild.textContent;
+       if(itemName.toLowerCase().indexOf(text) != -1){
+        item.style.display = 'block';
+       } else {
+        item.style.display = 'none';
+       }
+    });
 }
