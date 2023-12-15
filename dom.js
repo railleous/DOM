@@ -74,32 +74,90 @@ thirdItems.style.color = 'purple'; */
 
 //Query SelectorAll//
 
-var titles = document.querySelectorAll('.title');
-console.log(titles);
+//var titles = document.querySelectorAll('.title');
+//console.log(titles);
 //titles[0].textContent = 'Hello';
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
+//var odd = document.querySelectorAll('li:nth-child(odd)');
 //var even = document.querySelectorAll('li:nth-child(even)');
 
 
 
-for(var i = 0; i < odd.length; i++) {
+//for(var i = 0; i < odd.length; i++) {
     //Choose all the odd elements and make their background green using QuerySelectorALL
-    odd[i].style.backgroundColor = 'green';
+    //odd[i].style.backgroundColor = 'green';
     //even[i].style.backgroundColor = '#ccc';
-}
+//}
 
 //Using QuerySelectorALL change the font color to green for 2nd item in the item list
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.color = 'green';
+/* var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'green'; */
 
 //Make the 2nd item have green background color
-var secondbg = document.querySelector('.list-group-item:nth-child(2)');
-secondbg.style.backgroundColor = 'green';
+/* var secondbg = document.querySelector('.list-group-item:nth-child(2)');
+secondbg.style.backgroundColor = 'green'; */
 
 //Make the 3rd item invisible
-var thirditem = document.querySelector('.list-group-item:nth-child(3)');
-thirditem.style.color = 'green';
+/* var thirditem = document.querySelector('.list-group-item:nth-child(3)');
+thirditem.style.color = 'green'; */
 
+// TRAVERSING THE DOM //
+var itemList = document.querySelector('#items');
+//parentNode
+//console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor = '#f4f4f4';
 
+//childNodes
+//console.log(itemList.childNodes);
+//children
+/* console.log(itemList.children);
+console.log(itemList.children[1]);
+itemList.children[1].style.backgroundColor = 'yellow'; */
 
+//firstchild
+/* console.log(itemList.firstChild)
+//firstElementChild
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent = 'Hello 1'; */
+
+/* //lastChild
+console.log(itemList.lastChild);
+//lastElementChild
+console.log(itemList.lastElementChild);
+itemList.lastElementChild.textContent = 'Hello 4'; */
+
+//sibling
+//nextsibling
+/* console.log(itemList.nextSibling);
+//nextelementSibling
+console.log(itemList.nextElementSibling)
+//previousSibling
+console.log(itemList.previousSibling);
+//previousElementsibling
+console.log(itemList.previousElementSibling);
+itemList.parentElement.style.color = 'green'; */
+
+// createElement
+//create a div
+var newDiv = document.createElement('div');
+newDiv.className = 'hello';
+//add id
+newDiv.id = 'hello1';
+//Add attribute
+newDiv.setAttribute('title','Hello Div');
+// Create text node
+var newDivText = document.createTextNode('Hello World');
+// Add text to div
+newDiv.appendChild(newDivText);
+
+//Now go head and add HEllo word before Item Lister
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+console.log(newDiv);
+newDiv.style.fontSize = '30px';
+container.insertBefore(newDiv, h1);
+
+//Now go head and add HEllo word before Item 1
+var ul = document.querySelector('ul.list-group');
+ul.insertBefore(newDiv, ul.firstChild);
+console.log(newDiv);
