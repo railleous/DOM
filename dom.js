@@ -102,7 +102,7 @@ secondbg.style.backgroundColor = 'green'; */
 thirditem.style.color = 'green'; */
 
 // TRAVERSING THE DOM //
-var itemList = document.querySelector('#items');
+/* var itemList = document.querySelector('#items'); */
 //parentNode
 //console.log(itemList.parentNode);
 //itemList.parentNode.style.backgroundColor = '#f4f4f4';
@@ -139,7 +139,7 @@ itemList.parentElement.style.color = 'green'; */
 
 // createElement
 //create a div
-var newDiv = document.createElement('div');
+/* var newDiv = document.createElement('div');
 newDiv.className = 'hello';
 //add id
 newDiv.id = 'hello1';
@@ -160,4 +160,81 @@ container.insertBefore(newDiv, h1);
 //Now go head and add HEllo word before Item 1
 var ul = document.querySelector('ul.list-group');
 ul.insertBefore(newDiv, ul.firstChild);
-console.log(newDiv);
+console.log(newDiv); */
+
+/* var button = document.getElementById('button').addEventListener('click',function() {
+    console.log('Button Clicked');
+}) */
+
+/* var button = document.getElementById('button').addEventListener('click',buttonClick);
+ 
+function buttonClick(e) { */
+    //console.log('Button clicked');
+   // document.getElementById('header-title').textContent = 'Changed';
+   // document.querySelector('#main').style.backgroundColor = '#f4f4f4';
+   /* console.log(e);
+   console.log(e.target);
+
+   console.log(e.type); */
+   //console.log(e.clientX);
+
+
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+// PROJECT
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+
+// form submit event
+form.addEventListener('submit', addItem);
+// delete event
+itemList.addEventListener('click', removeItem);
+
+//Add item
+function addItem(e) {
+    e.preventDefault();
+
+// Get input Value
+var newItem = document.getElementById('item').value;
+
+// create new li eleemnt
+var li = document.createElement('li');
+//Add class
+li.className = 'list-group-item';
+//Add text node with input value
+li.appendChild(document.createTextNode(newItem));
+//create del button element
+var deletebtn = document.createElement('button');
+// add class to delete utton
+deletebtn.className = 'btn btn-danger btn-sm float-right delete';
+//append text node
+deletebtn.appendChild(document.createTextNode('X'));
+deletebtn.appendChild(document.createTextNode('edit'));
+
+//append button to li
+li.appendChild(deletebtn)
+
+//append li to list
+itemList.appendChild(li);
+}
+
+// Remove item
+function removeItem(e) {
+    if(e.target.classList.contains('delete')) {
+        if(confirm('Are you Sure?')) {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
